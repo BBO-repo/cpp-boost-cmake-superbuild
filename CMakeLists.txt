@@ -25,9 +25,9 @@ ExternalProject_Add(
   INSTALL_COMMAND ""
 )
 
-# set(Boost_LIBRARY_DIR ${CMAKE_SOURCE_DIR}/thirdparty/boost/lib/boost/ )
-set(Boost_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/thirdparty/boost/include/ )
+set(Boost_LIBS ${CMAKE_SOURCE_DIR}/thirdparty/boost/lib/${CMAKE_STATIC_LIBRARY_PREFIX}boost_chrono${CMAKE_SHARED_LIBRARY_SUFFIX})
+set(Boost_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/thirdparty/boost/include/)
 
 add_dependencies(boostdemo boost-external)
 include_directories(boostdemo ${Boost_INCLUDE_DIR})
-# target_link_libraries(boostdemo ${Boost_LIBRARY_DIR})
+target_link_libraries(boostdemo ${Boost_LIBS})
